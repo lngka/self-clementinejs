@@ -1,0 +1,32 @@
+{
+  "name": "my-clementine-js",
+  "version": "1.0.0",
+  "description": "Hommade ClementineJS template",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lngka/self-clementinejs.git"
+  },
+  "keywords": [
+    "template",
+    "js",
+    "clementinejs"
+  ],
+  "author": "lngka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lngka/self-clementinejs/issues"
+  },
+  "homepage": "https://github.com/lngka/self-clementinejs#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongodb": "^2.2.30"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1"
+  }
+}
