@@ -42,6 +42,6 @@ function clickHandler(db) {
                                  if (err) throw err;
                                  else res.json(result);
                              }
-        )
+        );
     };
 }
