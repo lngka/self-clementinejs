@@ -1,5 +1,7 @@
 'use strict';
 
+module.exports = clickHandler;
+
 function clickHandler(db) {
 
     var collection = db.collection("clicks");
@@ -13,7 +15,7 @@ function clickHandler(db) {
 
             if (result) res.json(result);
             // a new document is generated to store number of clicks, incase it's not already there
-            collection.insert({"clicks": 0}, function(err) {
+            else collection.insert({"clicks": 0}, function(err) {
                 if (err) throw err;
                 res.json({"clicks": 0});
             });
@@ -28,9 +30,9 @@ function clickHandler(db) {
                                  {"new": true}, // options, the updated doc will be passed to the callback
                                  function(err, doc) {
                                      if (err) throw err;
-                                     else res.json(doc);
+                                     else res.json(doc.value); // doc contains various info from database, but value is the {"clicks": xxx} Object
                                  });
-    }
+    };
 
     // reset the number of clicks to 0 in DB
     this.resetClicks = function(req, res) {
@@ -41,6 +43,5 @@ function clickHandler(db) {
                                  else res.json(result);
                              }
         )
-    }
+    };
 }
-module.exports = clickHandler;
