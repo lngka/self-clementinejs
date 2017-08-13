@@ -16,7 +16,7 @@
         ],
         "quotes": [
             "error",
-            "single"
+            "double"
         ],
         "semi": [
             "error",
@@ -25,6 +25,9 @@
         "no-console": [
             "error",
             {"allow": ["log", "warn", "error"]}
+        ],
+        "handle-callback-err": [
+            "error"
         ]
     }
 }
