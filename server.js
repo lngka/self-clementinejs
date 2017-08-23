@@ -2,7 +2,7 @@
 
 const express  = require("express");
 const path     = require("path");
-const routes   = require("./app/routes/routes.js");
+const routes   = require("./app/routes/index.js");
 const mongoose = require("mongoose");
 
 const app = express();
@@ -14,8 +14,8 @@ var allowCrossDomain = function(req, res, next) {
     next();
 };
 
-// deprecated, see http://mongoosejs.com/docs/connections.html#use-mongo-client
-mongoose.connect("mongodb://localhost:27017/clementinejs");
+// see http://mongoosejs.com/docs/connections.html#use-mongo-client
+mongoose.connect("mongodb://localhost:27017/clementinejs", {"useMongoClient": true});
 
 app.use(allowCrossDomain);
 app.use("/public", express.static(path.join(process.cwd(), "/public")));
@@ -24,5 +24,5 @@ routes(app);
 
 // 3000 is the default PORT
 app.listen(8080, () => {
-    console.log("App listens on PORT 3000");
+    console.log("App listens on PORT 8080");
 });
