@@ -29,8 +29,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(allowCrossDomain);
+
 app.use("/public", express.static(path.join(process.cwd(), "/public")));
 app.use("/app/controllers", express.static(path.join(process.cwd(), "/app/controllers")));
+app.use("/app/common", express.static(path.join(process.cwd(), "/app/common")));
 
 routes(app, passport);
 
