@@ -46,10 +46,15 @@ module.exports = function(app, passport) {
     app.route("/auth/github")
         .get(passport.authenticate("github"));
 
-    app.route("/api/clicks")
-        .use(ensureAuthenticated)
-        .get(clickHandler.getClicks)
-        .post(clickHandler.addCLick)
-        .delete(clickHandler.resetClicks);
+    app.route("/auth/github/callback")
+        .get(passport.authenticate("github", {
+            successRedirect: "/",
+            failureRedirect: "/login"
+        }));
+
+    app.route("/api/:id/clicks")
+        .get(ensureAuthenticated, clickHandler.getClicks)
+        .post(ensureAuthenticated, clickHandler.addCLick)
+        .delete(ensureAuthenticated, clickHandler.resetClicks);
 
 };

@@ -10,11 +10,13 @@ const session          = require("express-session");
 const dotenv = require("dotenv");
 const allowCrossDomain = require("./app/common/allowCrossDomain.js");
 
+// init environment variables
+dotenv.load();
+
 // see http://mongoosejs.com/docs/connections.html#use-mongo-client
-mongoose.connect("mongodb://localhost:27017/clementinejs", {"useMongoClient": true});
+mongoose.connect(process.env.MONGO_URI, {"useMongoClient": true});
 
 // init app
-dotenv.load();
 const app = express();
 
 app.use(session({
@@ -33,6 +35,7 @@ app.use("/app/controllers", express.static(path.join(process.cwd(), "/app/contro
 routes(app, passport);
 
 // 3000 is the default PORT
-app.listen(8080, () => {
-    console.log("App listens on PORT 8080");
+var port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log("App listens on port: " + port);
 });
