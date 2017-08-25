@@ -1,11 +1,12 @@
 "use strict";
-const ajaxFunctions = require("../common/ajax-function.js");
 
 (function(){
     var clickNum    = document.querySelector("#click-num");
     var addButton   = document.querySelector(".btn-add");
     var resetButton = document.querySelector(".btn-reset");
-    var apiURL      = "http://localhost:8080/api/clicks";
+    /* eslint-disable no-undef*/
+    var apiURL = appUrl + "/api/:id/clicks";
+    /* eslint-enable no-undef*/
 
 
     /*
@@ -18,6 +19,7 @@ const ajaxFunctions = require("../common/ajax-function.js");
     }
 
     // show user the number of clicks at page load
+    /* eslint-disable no-undef*/
     ajaxFunctions.ready(ajaxFunctions.ajaxRequest("GET", apiURL, updateClicksCount));
 
     // server is configured to send the data AFTER it was updated with POST
