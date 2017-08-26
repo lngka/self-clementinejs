@@ -6,18 +6,12 @@
     </head>
     <body>
         <div class="container">
-            <img src="/public/img/logo.svg" alt="Clementine logo"></img>
-            <br>
-            <p id="title">Homemade ClementineJS</p>
+            Please login via Github
         </div>
-        <div class="containter">
-            <p>You have clicked <span id="click-num"></span> times</p>
-            <div class="btn-container">
-                <button type="submit" class="btn btn-add">CLICK!!</button>
-                <button class="btn btn-reset">RESET</button>
-            </div>
-        </div>
-        <script type="text/javascript" src="/app/common/ajax-functions.js"></script>
-        <script type ="text/javascript" src="/app/controllers/clickController.client.js"></script>
+        <a href="/auth/github">
+            <div class="btn" id="login-btn">
+					<img src="/public/img/GitHub-Mark-64px.png" alt="github logo" />
+			</div>
+        </a>
     </body>
 </html>

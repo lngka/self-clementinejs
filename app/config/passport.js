@@ -2,7 +2,7 @@
 
 const GitHubStrategy = require("passport-github").Strategy;
 const User           = require("../models/users");
-const authConfig     = require("./auth.js");
+// const authConfig     = require("./auth.js");
 
 module.exports = function(passport) {
     passport.serializeUser(function(user, done) {
@@ -16,9 +16,9 @@ module.exports = function(passport) {
     });
 
     passport.use(new GitHubStrategy({
-        "clientID"    : authConfig.githubAuth.clientID,
-        "clientSecret": authConfig.githubAuth.clientSecret,
-        "callbackURL" : authConfig.githubAuth.callbackURL
+        "clientID"    : process.env.GITHUB_KEY,
+        "clientSecret": process.env.GITHUB_SECRET,
+        "callbackURL" : process.env.APP_URL + "auth/github/callback"
     }, function(token, refreshToken, profile, done) {
         process.nextTick(function() {
             User.findOne({"github.id": profile.id}, function(err, user) {

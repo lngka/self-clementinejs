@@ -7,8 +7,9 @@ const routes           = require("./app/routes/index.js");
 const mongoose         = require("mongoose");
 const passport         = require("passport");
 const session          = require("express-session");
-const dotenv = require("dotenv");
+const dotenv           = require("dotenv");
 const allowCrossDomain = require("./app/common/allowCrossDomain.js");
+const passportConfig   = require("./app/config/passport.js");
 
 // init environment variables
 dotenv.load();
@@ -34,6 +35,7 @@ app.use("/public", express.static(path.join(process.cwd(), "/public")));
 app.use("/app/controllers", express.static(path.join(process.cwd(), "/app/controllers")));
 app.use("/app/common", express.static(path.join(process.cwd(), "/app/common")));
 
+passportConfig(passport);
 routes(app, passport);
 
 // 3000 is the default PORT
