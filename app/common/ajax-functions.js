@@ -31,7 +31,7 @@ function ajaxRequest(method, url, callback) {
     xmlHTTP.onreadystatechange = function() {
         // XMLHttpRequest.DONE === 4
         if (xmlHTTP.readyState === 4 && xmlHTTP.status === 200) {
-            callback(xmlHTTP.response);
+            callback(JSON.parse(xmlHTTP.response));
         }
     };
     // XMLHttpRequest.open(method, url, async)

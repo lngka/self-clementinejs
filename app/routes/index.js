@@ -35,12 +35,7 @@ module.exports = function(app, passport) {
 
     app.route("/api/:id")
         .get(ensureAuthenticated, function(req, res) {
-            var id = req.params.id;
-            if (id == req.user.github.id) {
-                res.json(req.user);
-            } else {
-                res.send("Use your own Github ID");
-            }
+            res.json(req.user.github);
         });
 
     app.route("/auth/github")

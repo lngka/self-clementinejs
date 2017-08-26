@@ -10,7 +10,14 @@
             <br>
             <p id="title">Homemade ClementineJS</p>
         </div>
+
         <div class="containter">
+            <header>
+                <p>Welcome, <span id="display-name"></span>!</p>
+                <a class="menu" href="/profile">Profile</a>
+                <p>|</p>
+                <a class="menu" href="/logout">Logout</a>
+            </header>
             <p>You have clicked <span id="click-num"></span> times</p>
             <div class="btn-container">
                 <button class="btn btn-add">CLICK!!</button>
@@ -18,6 +25,7 @@
             </div>
         </div>
         <script type="text/javascript" src="/app/common/ajax-functions.js"></script>
-        <script type ="text/javascript" src="/app/controllers/clickController.client.js"></script>
+        <script type="text/javascript" src="/app/controllers/clickController.client.js"></script>
+        <script type="text/javascript" src="/app/controllers/userController.client.js"></script>
     </body>
 </html>

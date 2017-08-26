@@ -14,8 +14,7 @@
     * @param {object} data returned from the server, is actually XMLHttpRequest.response
     */
     function updateClicksCount(data) {
-        var dataObj = JSON.parse(data);
-        clickNum.innerHTML = dataObj.clicks;
+        clickNum.innerHTML = data.clicks;
     }
 
     // show user the number of clicks at page load
